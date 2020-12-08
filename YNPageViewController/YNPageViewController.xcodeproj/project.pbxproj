@@ -93,6 +93,7 @@
 		2EFDC1D520E0E9B10018455F /* YNScrollMenuStyleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFDC1D420E0E9B10018455F /* YNScrollMenuStyleVC.m */; };
 		2EFDC1D920E213440018455F /* YNLoadPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFDC1D820E213440018455F /* YNLoadPageVC.m */; };
 		2EFDC1DC20E2156E0018455F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFDC1DB20E2156E0018455F /* BaseViewController.m */; };
+		3476419C540F92BEE6D13B66 /* Pods_YNPageViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8E5AB66770ED219F2D19F5 /* Pods_YNPageViewController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -269,6 +270,9 @@
 		2EFDC1D820E213440018455F /* YNLoadPageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNLoadPageVC.m; sourceTree = "<group>"; };
 		2EFDC1DA20E2156E0018455F /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		2EFDC1DB20E2156E0018455F /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		6CF0BDBEA7C9E7C79A914176 /* Pods-YNPageViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YNPageViewController.release.xcconfig"; path = "Target Support Files/Pods-YNPageViewController/Pods-YNPageViewController.release.xcconfig"; sourceTree = "<group>"; };
+		A70B945E1338CA69B5F033C6 /* Pods-YNPageViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YNPageViewController.debug.xcconfig"; path = "Target Support Files/Pods-YNPageViewController/Pods-YNPageViewController.debug.xcconfig"; sourceTree = "<group>"; };
+		AF8E5AB66770ED219F2D19F5 /* Pods_YNPageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YNPageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3476419C540F92BEE6D13B66 /* Pods_YNPageViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +664,8 @@
 			children = (
 				2E89D00A208C569700D038D6 /* YNPageViewController */,
 				2E89D009208C569700D038D6 /* Products */,
+				602FC9639E72FB1692FBF3AE /* Pods */,
+				F856741888E2ACAF15DE2CCA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -726,6 +733,24 @@
 			path = LoadPageVC;
 			sourceTree = "<group>";
 		};
+		602FC9639E72FB1692FBF3AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A70B945E1338CA69B5F033C6 /* Pods-YNPageViewController.debug.xcconfig */,
+				6CF0BDBEA7C9E7C79A914176 /* Pods-YNPageViewController.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F856741888E2ACAF15DE2CCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF8E5AB66770ED219F2D19F5 /* Pods_YNPageViewController.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -733,9 +758,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E89D01E208C569700D038D6 /* Build configuration list for PBXNativeTarget "YNPageViewController" */;
 			buildPhases = (
+				5BA1F2A3E8FAF02D990C0CC7 /* [CP] Check Pods Manifest.lock */,
 				2E89D004208C569700D038D6 /* Sources */,
 				2E89D005208C569700D038D6 /* Frameworks */,
 				2E89D006208C569700D038D6 /* Resources */,
+				ADA2611BD17BE31D4FBAEBEC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -792,6 +819,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BA1F2A3E8FAF02D990C0CC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YNPageViewController-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADA2611BD17BE31D4FBAEBEC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YNPageViewController/Pods-YNPageViewController-frameworks.sh",
+				"${PODS_ROOT}/LookinServer/LookinServer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LookinServer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YNPageViewController/Pods-YNPageViewController-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2E89D004208C569700D038D6 /* Sources */ = {
@@ -1011,18 +1081,19 @@
 		};
 		2E89D01F208C569700D038D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A70B945E1338CA69B5F033C6 /* Pods-YNPageViewController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AR9K7MKV3Z;
+				DEVELOPMENT_TEAM = KLZ6FTC7C7;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ./YNPageViewController/YNPreHeader.h;
 				INFOPLIST_FILE = YNPageViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yn.YNPageViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1031,18 +1102,19 @@
 		};
 		2E89D020208C569700D038D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CF0BDBEA7C9E7C79A914176 /* Pods-YNPageViewController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AR9K7MKV3Z;
+				DEVELOPMENT_TEAM = KLZ6FTC7C7;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ./YNPageViewController/YNPreHeader.h;
 				INFOPLIST_FILE = YNPageViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yn.YNPageViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
