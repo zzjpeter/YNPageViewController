@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self addGestureForView:self.headerView action:@selector(tapAction)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,8 +48,8 @@
 + (instancetype)testPageVC {
     YNPageConfigration *configration = [YNPageConfigration defaultConfig];
     configration.pageStyle = YNPageStyleSuspensionTopPause;
-    //    configration.pageStyle = YNPageStyleNavigation;
-    //    configration.pageStyle = YNPageStyleTop;
+    //configration.pageStyle = YNPageStyleNavigation;
+    //configration.pageStyle = YNPageStyleTop;
     configration.headerViewCouldScale = YES;
     //    configration.headerViewScaleMode = YNPageHeaderViewScaleModeCenter;
     configration.headerViewScaleMode = YNPageHeaderViewScaleModeTop;
@@ -56,7 +58,8 @@
     configration.scrollMenu = NO;
     configration.aligmentModeCenter = NO;
     configration.lineWidthEqualFontWidth = NO;
-    //    configration.menuWidth = 250;
+    //configration.menuWidth = 250;
+    //configration.menuHeight = 0;
     
     YNTestPageVC *vc = [YNTestPageVC pageViewControllerWithControllers:[self getArrayVCs]
                                                                 titles:[self getArrayTitles]
@@ -109,6 +112,22 @@
 #pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     NSLog(@"----click 轮播图 index %ld", index);
+}
+
+- (void)addGestureForView:(UIView *)info action:(nullable SEL)action{
+    info.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:action];
+    [info addGestureRecognizer:tap];
+}
+
+- (void)tapAction {
+    static NSInteger i = 0;
+    i++;
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, i * 100)];
+    headerView.backgroundColor = [UIColor redColor];
+    self.headerView = headerView;
+    [self addGestureForView:self.headerView action:@selector(tapAction)];
+    [self reloadData];
 }
 
 @end
